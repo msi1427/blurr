@@ -7,6 +7,7 @@ __all__ = ['blurr_splitter', 'BaseModelWrapper', 'BaseModelCallback', 'show_resu
 # %% ../../../nbs/11_text-modeling-core.ipynb 4
 import os, inspect, mimetypes, warnings
 from typing import Any, Callable, Dict, List, Optional, Union, Type
+from plum import dispatch
 
 from fastcore.all import *
 from fastai.callback.all import *
@@ -120,7 +121,7 @@ class BaseModelCallback(Callback):
 
 
 # %% ../../../nbs/11_text-modeling-core.ipynb 34
-@typedispatch
+@dispatch
 def show_results(
     # This typedispatched `show_results` will be called for `TextInput` typed inputs
     x: TextInput,
