@@ -346,7 +346,7 @@ def show_batch(
 
 
 # %% ../../../nbs/12_text-data-language-modeling.ipynb 68
-@typedispatch
+@dispatch
 def show_batch(
     # This typedispatched `show_batch` will be called for `MLMTextInput` typed inputs
     x: MLMTextInput,
