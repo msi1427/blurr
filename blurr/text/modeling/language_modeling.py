@@ -6,6 +6,7 @@ __all__ = ['LMMetricsCallback', 'show_results', 'BlearnerForLM']
 # %% ../../../nbs/12_text-modeling-language-modeling.ipynb 5
 import ast, gc, inspect, os, warnings
 from typing import Any, Callable, Dict, List, Optional, Union, Type
+from plum import dispatch
 
 from fastcore.all import *
 from fastai.callback.all import *
@@ -108,7 +109,7 @@ class LMMetricsCallback(Callback):
 
 
 # %% ../../../nbs/12_text-modeling-language-modeling.ipynb 32
-@typedispatch
+@dispatch
 def show_results(
     # This typedispatched `show_results` will be called for `HF_CausalLMInput` typed inputs
     x: CausalLMTextInput,
