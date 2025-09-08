@@ -6,6 +6,7 @@ __all__ = ['QAPreprocessor', 'QATextInput', 'QABatchTokenizeTransform', 'show_ba
 # %% ../../../nbs/14_text-data-question-answering.ipynb 5
 import ast, warnings
 from functools import reduce
+from plum import dispatch
 
 from datasets import Dataset
 from fastcore.all import *
@@ -240,7 +241,7 @@ class QABatchTokenizeTransform(BatchTokenizeTransform):
 
 
 # %% ../../../nbs/14_text-data-question-answering.ipynb 45
-@typedispatch
+@dispatch
 def show_batch(
     # This typedispatched `show_batch` will be called for `QuestionAnswerTextInput` typed inputs
     x: QATextInput,
