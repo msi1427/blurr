@@ -9,6 +9,7 @@ __all__ = ['TokenClassPreprocessor', 'BaseLabelingStrategy', 'OnlyFirstTokenLabe
 # %% ../../../nbs/13_text-data-token-classification.ipynb 5
 import ast, os, warnings
 from typing import Callable, List, Tuple
+from plum import dispatch
 
 from datasets import Dataset
 from fastcore.all import *
@@ -497,7 +498,7 @@ class TokenClassBatchTokenizeTransform(BatchTokenizeTransform):
 
 
 # %% ../../../nbs/13_text-data-token-classification.ipynb 66
-@typedispatch
+@dispatch
 def show_batch(
     # This typedispatched `show_batch` will be called for `TokenClassTextInput` typed inputs
     x: TokenClassTextInput,
