@@ -8,6 +8,7 @@ __all__ = ['LMPreprocessor', 'LMType', 'BaseLMStrategy', 'CausalLMStrategy', 'Be
 import os, random, warnings
 from abc import ABC, abstractmethod
 from enum import Enum
+from plum import dispatch
 
 from datasets import Dataset
 from fastcore.all import *
@@ -305,7 +306,7 @@ class LMBatchTokenizeTransform(BatchTokenizeTransform):
 
 
 # %% ../../../nbs/12_text-data-language-modeling.ipynb 54
-@typedispatch
+@dispatch
 def show_batch(
     # This typedispatched `show_batch` will be called for `CausalLMTextInput` typed inputs
     x: CausalLMTextInput,
