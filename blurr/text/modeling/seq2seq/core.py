@@ -6,6 +6,7 @@ __all__ = ['blurr_seq2seq_splitter', 'Seq2SeqMetricsCallback', 'show_results']
 # %% ../../../../nbs/20_text-modeling-seq2seq-core.ipynb 5
 import warnings
 import torch
+from plum import dispatch
 
 from datasets import load_metric as hf_load_metric
 from fastai.callback.all import *
@@ -247,7 +248,7 @@ class Seq2SeqMetricsCallback(Callback):
 
 
 # %% ../../../../nbs/20_text-modeling-seq2seq-core.ipynb 38
-@typedispatch
+@dispatch
 def show_results(
     # This typedispatched `show_results` will be called for `Seq2SeqTextInput` typed inputs
     x: Seq2SeqTextInput,
