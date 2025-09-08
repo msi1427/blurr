@@ -154,7 +154,7 @@ def show_results(
 
 
 # %% ../../../nbs/12_text-modeling-language-modeling.ipynb 50
-@typedispatch
+@dispatch
 def show_results(
     # This typedispatched `show_results` will be called for `HF_MLMInput` typed inputs
     x: MLMTextInput,
