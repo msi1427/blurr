@@ -9,7 +9,7 @@ import os, ast, inspect, warnings
 from typing import Any, Callable, Dict, List, Optional, Union, Type
 from plum import dispatch
 
-from datasets import load_metric
+import evaluate
 from fastcore.all import *
 from fastai.callback.all import *
 from fastai.data.block import DataBlock, CategoryBlock, ColReader, ItemGetter, ColSplitter, RandomSplitter
@@ -35,7 +35,7 @@ from ...utils import PreCalculatedLoss, MultiTargetLoss
 
 # %% ../../../nbs/14_text-modeling-question-answering.ipynb 7
 # metrics we'll use in extractive qa
-squad_metric = load_metric("squad")
+squad_metric = evaluate.load(“squad”)
 
 # silence all the HF warnings
 warnings.simplefilter("ignore")
