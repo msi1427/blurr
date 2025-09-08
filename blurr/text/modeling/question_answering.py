@@ -7,6 +7,7 @@ __all__ = ['squad_metric', 'QAModelCallback', 'QAMetricsCallback', 'compute_qa_m
 # %% ../../../nbs/14_text-modeling-question-answering.ipynb 5
 import os, ast, inspect, warnings
 from typing import Any, Callable, Dict, List, Optional, Union, Type
+from plum import dispatch
 
 from datasets import load_metric
 from fastcore.all import *
@@ -181,7 +182,7 @@ class PreCalculatedQALoss(PreCalculatedLoss):
 
 
 # %% ../../../nbs/14_text-modeling-question-answering.ipynb 37
-@typedispatch
+@dispatch
 def show_results(
     # This typedispatched `show_results` will be called for `QuestionAnswerTextInput` typed inputs
     x: QATextInput,
