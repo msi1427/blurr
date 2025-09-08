@@ -7,6 +7,7 @@ __all__ = ['calculate_token_class_metrics', 'TokenClassMetricsCallback', 'show_r
 # %% ../../../nbs/13_text-modeling-token-classification.ipynb 5
 import os, ast, inspect, warnings
 from typing import Any, Callable, Dict, List, Optional, Union, Type
+from plum import dispatch
 
 from fastcore.all import *
 from fastai.callback.all import *
@@ -153,7 +154,7 @@ class TokenClassMetricsCallback(Callback):
 
 
 # %% ../../../nbs/13_text-modeling-token-classification.ipynb 36
-@typedispatch
+@dispatch
 def show_results(
     # This typedispatched `show_results` will be called for `TokenClassTextInput` typed inputs
     x: TokenClassTextInput,
