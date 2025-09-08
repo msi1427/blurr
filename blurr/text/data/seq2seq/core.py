@@ -7,6 +7,7 @@ __all__ = ['Seq2SeqPreprocessor', 'Seq2SeqTextInput', 'Seq2SeqBatchTokenizeTrans
 # %% ../../../../nbs/20_text-data-seq2seq-core.ipynb 5
 import warnings
 from typing import Optional
+from plum import dispatch
 
 from fastai.imports import *
 from fastai.losses import CrossEntropyLossFlat
@@ -319,7 +320,7 @@ class Seq2SeqTextBlock(TextBlock):
 
 
 # %% ../../../../nbs/20_text-data-seq2seq-core.ipynb 30
-@typedispatch
+@dispatch
 def show_batch(
     # This typedispatched `show_batch` will be called for `Seq2SeqTextInput` typed inputs
     x: Seq2SeqTextInput,
