@@ -35,7 +35,7 @@ from ...utils import PreCalculatedLoss, MultiTargetLoss
 
 # %% ../../../nbs/14_text-modeling-question-answering.ipynb 7
 # metrics we'll use in extractive qa
-squad_metric = evaluate.load(“squad”)
+squad_metric = evaluate.load("squad")
 
 # silence all the HF warnings
 warnings.simplefilter("ignore")
