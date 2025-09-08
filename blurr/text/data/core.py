@@ -7,6 +7,7 @@ import os, inspect, warnings
 from dataclasses import dataclass
 from functools import reduce, partial
 from typing import Callable
+from plum import dispatch
 
 from datasets import Dataset, load_dataset, concatenate_datasets
 from fastcore.all import *
@@ -477,7 +478,7 @@ def first_blurr_tfm(
 
 
 # %% ../../../nbs/11_text-data-core.ipynb 45
-@typedispatch
+@dispatch
 def show_batch(
     # This typedispatched `show_batch` will be called for `TextInput` typed inputs
     x: TextInput,
