@@ -8,7 +8,7 @@ import warnings
 import torch
 from plum import dispatch
 
-from datasets import load_metric as hf_load_metric
+import evaluate
 from fastai.callback.all import *
 from fastai.data.block import DataBlock, ColReader, RandomSplitter
 from fastai.imports import *
@@ -125,7 +125,7 @@ class Seq2SeqMetricsCallback(Callback):
                 if "compute_func" in metric_info_dict:
                     compute_func = metric_info_dict["compute_func"]
                 else:
-                    compute_func = hf_load_metric(metric_name).compute
+                    compute_func = evaluate.load(metric_name).compute
 
                 compute_kwargs = metric_info_dict["compute_kwargs"] if ("compute_kwargs" in metric_info_dict) else {}
                 metric_returns = metric_info_dict["returns"]
